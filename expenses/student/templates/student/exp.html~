@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	
+<meta charset='UTF-8'>
+
+	<link rel="stylesheet" href="style.css" />
+
+	<title>Bill</title>
+</head>
+<body>
+<p style="text-align:center"> Student Expenses Bill </p>
+
+<style>
+table,th,td
+{
+border:1px solid black;
+}
+th,td
+{
+padding:2px;
+border-style:inset;
+}
+</style>
+
+<table style="width:1000px;align:center;">
+<tr>
+  <th>S.no.</th>
+  <th>Travel_Fare</th>
+  <th>Eatables</th>
+  <th>Sports</th>
+  <th>Accessories</th>
+  <th>Total</th>
+</tr>
+{% if WeeklyExpenses %}
+{% for obj in PurchasedItem}
+<tr> 
+  <td>{{ forloop.counter }}</td>
+  <td> {{ obj.Travel_Fare }}</td> 
+   <td>{{ obj.Eatables }}</td>
+   <td>{{ obj.Sports }}</td>
+   <td>{{ obj.Accessories }}</td>
+   <td>{{ obj.total }}</td>
+</tr>
+
+% endfor %}
+ {% endif %}
+
+<tr>
+	<td><b>Total </b></td>
+	<td>  </td>
+	<td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td><b>{{total_cost}}</b></td>
+</tr>
+        
+</table>
+</body>
+</html>
+
